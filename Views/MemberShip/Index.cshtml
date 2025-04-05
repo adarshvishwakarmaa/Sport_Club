@@ -1,0 +1,185 @@
+﻿@model IEnumerable<My_Sport_Club.Models.Domains.MemberShip>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="cent">
+    <h1>Index Page</h1>
+    <h1>MemberShip</h1>
+</div>
+
+<p>
+    <button class="btn btn-info"><a asp-action="Create" class="text-decoration-none text-white">Create New</a></button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MembershipType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MembershipType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fee)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+
+<style>
+
+    .cent {
+        text-align: center;
+        padding: 5px; /* Adjusted padding for a smaller area */
+        /*  background: linear-gradient(to right, #00c6ff, #0072ff);  */ /* Gradient background */
+        background: linear-gradient(to right, #00008b, #0000ff);
+        border-radius: 15px;
+        max-width: 50%; /* Limit the width to make it more compact */
+        margin: 0 auto; /* Center it horizontally */
+    }
+
+        .cent h1 {
+            font-family: 'Arial', sans-serif;
+            color: white;
+            font-size: 20px; /* Adjusted font-size */
+            /*  text-transform: uppercase; */
+            letter-spacing: 2px; /* Reduced letter-spacing */
+            margin: 5px 0;
+            /*  padding: 1px; */ /* Reduced padding */
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3); /* Adding text shadow */
+            transition: transform 0.3s ease-in-out, color 0.3s ease; /* Smooth transition on hover */
+        }
+
+            .cent h1:hover {
+                transform: scale(1.05); /* Slightly reduce scale on hover */
+                color: #ffeb3b; /* Change color on hover */
+            }
+
+    /* Style the table */
+    .create-button {
+        display: inline-block;
+        padding: 6px 8px;
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+        background-color: #007bff; /* Bootstrap primary color */
+        border: none;
+        border-radius: 3px;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .create-button:hover {
+            background-color: #0056b3; /* Darker shade for hover effect */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .create-button:active {
+            background-color: #004085; /* Even darker shade for active state */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 8px 0;
+        font-size: 1em;
+        font-family: 'Arial', sans-serif;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+        .table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .table th,
+        .table td {
+            padding: 4px 6px;
+            border: 1px solid #dddddd;
+        }
+
+        .table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+            .table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+
+            .table tbody tr:last-of-type {
+                border-bottom: 2px solid #009879;
+            }
+
+            .table tbody tr:hover {
+                background-color: #f1f1f1;
+            }
+
+        /* Style the action buttons */
+        .table a {
+            color: #009879;
+            text-decoration: none;
+            padding: 4px 6px;
+            border: 1px solid #009879;
+            border-radius: 5px;
+            margin-right: 5px;
+            transition: all 0.3s ease;
+        }
+
+            .table a:hover {
+                background-color: #009879;
+                color: #ffffff;
+            }
+
+        /* Ensure the buttons are properly aligned */
+        .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+            .table td:last-child {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+</style>

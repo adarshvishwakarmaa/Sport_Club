@@ -1,0 +1,99 @@
+﻿@* Take empty view for pagination *@
+
+@@if (ViewBag.getAllData != null)
+{
+@foreach (var @item in ViewBag.getAllData)
+{
+    <tr>
+        <td data-toggle="tooltip" title="@item.ID">
+            <span class="more">@item.ID</span>
+        </td>
+        <td data-toggle="tooltip" title="@item.sport">
+            <span class="more">
+                @item.sport
+            </span>
+        </td>
+
+        <td data-toggle="tooltip" title="@item.TeamA">
+            <span class="more">
+                @item.TeamA
+            </span>
+        </td>
+        <td data-toggle="tooltip" title="@item.TeamB">
+            <span class="more">
+                @item.TeamB
+            </span>
+        </td>
+        <td data-toggle="tooltip" title="@item.Location">
+            <span class="more">
+                @item.Location
+            </span>
+        </td>
+        <td data-toggle="tooltip" title="@item.CoachName">
+            <span class="more">
+                @item.CoachName
+            </span>
+        </td>
+        <td data-toggle="tooltip" title="@item.VenueName">
+            <span class="more">
+                @item.VenueName
+            </span>
+        </td>
+        <td data-toggle="tooltip" title="@item.EventName">
+            <span class="more">
+                @item.EventName
+            </span>
+        </td>
+        <td data-toggle="tooltip" title="@item.Description">
+            <span class="more">
+                @item.Description
+            </span>
+        </td>
+       
+
+        <td>
+
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary btn-sm", onclick = "return confirm('Sure you want to Update ?')" }) |
+
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Sure you want to delete ?')" })
+
+        </td>
+
+    </tr>
+}
+
+
+<b />
+@if (ViewBag.TotalPage > 0)
+{
+
+    <div class="">
+        <ul class="pagination justify-content-end">
+            @for (var pge = ViewBag.StartPage; pge <= ViewBag.EndPage; pge++)
+            {
+                <li class="page-item @(pge == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="javascript:void(0);" onclick="return GetData(@pge);">@pge</a>
+                </li>
+            }
+
+        </ul>
+    </div>
+    <b />
+    <span class="">
+        Showing <b>@ViewBag.ShowRecord</b> from <b>@ViewBag.AllRecord</b> Records
+    </span>
+    <span class="ml-2">
+        <b> @ViewBag.CurrentPage</b> of<b> @ViewBag.TotalPage</b> pages
+    </span>
+}
+}
+<script language="javascript" type="text/javascript">
+    /////////////////////////////////////on load colour coding
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'bottom',
+            html: true,
+        });
+    });
+</script>
+

@@ -1,0 +1,29 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /*background-image: url('file:///C:\Users\khushboo\Downloads\pngtree-colorful-sports-theme-background-material-image_944423.jpg');*/
+    margin-bottom: 60px;
+    /*background-image: url("Images/Sports.png");*/
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
+    filter: blur(5%); /* Adds a blur effect to the background */
+    opacity: 0.8; /* Adjusts the transparency of the background image (0 is fully transparent, 1 is fully opaque) */
+}

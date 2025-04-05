@@ -1,0 +1,109 @@
+﻿@model My_Sport_Club.Models.Domains.Register
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="cent">
+    @*  //center the output *@
+
+    <h1>Register</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register" class="btn btn-primary" />
+                <button class="btn btn-primary">  <a asp-action="Login" asp-controller="Login" class="text-decoration-none text-white">Login Here</a></button>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+<style>
+    .cent {
+        text-align: center;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    /* Optional: Adjust form width or other layout styles */
+    .col-md-4 {
+        max-width: 400px; /* Adjust as per your layout needs */
+        margin: 0 auto; /* Center the form horizontally */
+        padding: 20px; /* Add some padding around the form */
+        border: 1px solid #ccc; /* Add a border for clarity */
+        border-radius: 5px; /* Optional: Rounded corners */
+        background-color: #f9f9f9; /* Optional: Light background color */
+    }
+
+    /* Style for validation summary */
+    .text-danger {
+        color: red;
+    }
+
+    /* Style for submit button */
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    /* Style for link back to list */
+    a {
+        color: #007bff;
+        text-decoration: none;
+        margin-top: 0px;
+        display: inline-block;
+    }
+
+    .cent {
+        text-align: center;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
